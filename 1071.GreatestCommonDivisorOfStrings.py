@@ -46,5 +46,6 @@ class Solution(object):
             x+=1
         return gcd[-1]
         
-answer = Solution.gcdOfStrings(Solution, "ABABAB", "ABAB")
+myclass = Solution()
+answer = myclass.gcdOfStrings("ABABAB", "ABAB")
 print(answer)

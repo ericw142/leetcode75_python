@@ -58,5 +58,6 @@ class Solution(object):
 
         return merged
 
-answer = Solution.mergeAlternately(Solution, "hello", "world")
+myclass = Solution()
+answer = myclass.mergeAlternately("hello", "world")
 print(answer)
