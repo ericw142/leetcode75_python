@@ -34,7 +34,9 @@ class Solution(object):
         totalThatCanBePlanted = 0
 
         for idx, plot in enumerate(flowerbed):
-            if plot == 1:
+            if totalThatCanBePlanted >= n:
+                break
+            elif plot == 1:
                 continue
             else:
                 if (idx == 0 or flowerbed[idx-1] == 0) and (idx+1 >= len(flowerbed) or flowerbed[idx+1] == 0):
