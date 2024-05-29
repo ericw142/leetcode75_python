@@ -39,4 +39,23 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
+        reversed = list(s)
+        vowels_to_replace = []
+        idxs = []
+        for x in range(0, len(s)):
+            if self.isVowel(s[x]):
+                vowels_to_replace.append(s[x])
+                idxs.append(x)
+
+        vowels_to_replace.reverse()
+
+        for v in range(0, len(vowels_to_replace)):
+            reversed[idxs[v]] = vowels_to_replace[v]
         
+        return ''.join(reversed)
+        
+s = "hello"
+
+myclass = Solution()
+answer = myclass.reverseVowels(s)
+print(answer)
