@@ -39,20 +39,35 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        reversed = list(s)
-        vowels_to_replace = []
-        idxs = []
-        for x in range(0, len(s)):
-            if self.isVowel(s[x]):
-                vowels_to_replace.append(s[x])
-                idxs.append(x)
+        start = 0
+        end = len(s) - 1
 
-        vowels_to_replace.reverse()
+        s_array = list(s)
 
-        for v in range(0, len(vowels_to_replace)):
-            reversed[idxs[v]] = vowels_to_replace[v]
-        
-        return ''.join(reversed)
+        while start < end:
+            front_char = s_array[start]
+            end_char = s_array[end]
+
+            frontIsVowel = self.isVowel(front_char)
+            endIsVowel = self.isVowel(end_char)
+
+            if not frontIsVowel:
+                start += 1
+                continue
+            if not self.isVowel(end_char):
+                end -= 1
+                continue
+            if (frontIsVowel and endIsVowel):
+                e = end_char
+                s_array[end] = front_char
+                s_array[start] = e
+
+                start += 1
+                end -= 1
+
+        return ''.join(s_array)
+
+            
         
 s = "hello"
 
