@@ -46,17 +46,15 @@ class Solution(object):
             if self.isVowel(s[i]):
                 currsum += 1
                 maxsum += 1
-        
         for i in range(k, len(s)):
             if self.isVowel(s[i]):
                 currsum += 1
-            
             if not self.isVowel(s[i - k]):
                 currsum -= 1
 
             maxsum = max(maxsum, currsum)
 
-        return maxsum / k
+        return maxsum
     
 
 s = "leetcode"
